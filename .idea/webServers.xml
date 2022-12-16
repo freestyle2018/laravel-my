@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7cfcb324-b958-4841-bcd3-8df0c3a2c5f8" name="local.host" url="http://laraver-my.ru">
+        <fileTransfer mountedRoot="C:\OpenServer\domains\laravel-my.ru\blog" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>

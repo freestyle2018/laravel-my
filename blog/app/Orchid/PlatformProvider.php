@@ -106,7 +106,7 @@ class PlatformProvider extends OrchidServiceProvider
      */
     public function registerProfileMenu(): array
     {
-        return [return
+        return [
             Menu::make(__('Profile'))
                 ->route('platform.profile')
                 ->icon('user'),

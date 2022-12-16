@@ -5,11 +5,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Orchid\Attachment\Attachable;
 use Orchid\Screen\AsSource;
 
 class Post extends Model
 {
-    use AsSource;
+    use AsSource, Attachable;
 
     /**
      * @var array
@@ -18,6 +19,7 @@ class Post extends Model
         'title',
         'description',
         'body',
-        'author'
+        'author',
+        'hero'
     ];
 }

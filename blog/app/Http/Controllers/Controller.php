@@ -17,8 +17,8 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        $menu_items = DB::table('menu')->get();
-        var_dump($menu_items);
-        View::share('menu_items', $menu_items);
+        //$menu_items = DB::table('menu')->get();
+        //var_dump($menu_items);
+        //View::share('menu_items', $menu_items);
     }
 }

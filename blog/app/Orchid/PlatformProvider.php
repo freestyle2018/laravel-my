@@ -96,8 +96,12 @@ class PlatformProvider extends OrchidServiceProvider
                 ->title('Tools'),
 
             Menu::make('Posts')
-                ->icon('envelope-letter')
+                ->icon('docs')
                 ->route('platform.post.list'),
+
+            Menu::make('Menu')
+                ->icon('folder')
+                ->route('platform.menu.list'),
         ];
     }
 

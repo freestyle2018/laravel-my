@@ -125,6 +125,15 @@ class PostEditScreen extends Screen
      */
     public function createOrUpdate(Post $post, Request $request)
     {
+
+        $request->validate([
+            'post.title' => 'required',
+            'post.description' => 'required',
+            'post.author' => 'required',
+            'post.body' => 'required',
+        ]);
+
+
         $post->fill($request->get('post'))->save();
 
         $post->attachment()->syncWithoutDetaching(

@@ -22,6 +22,7 @@ use App\Orchid\Screens\PostEditScreen;
 use App\Orchid\Screens\PostListScreen;
 use App\Orchid\Screens\Menu\MenuListScreen;
 use App\Orchid\Screens\Menu\MenuNewScreen;
+use App\Http\Controllers\MenuAdminkaController;
 
 /* |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -118,25 +119,11 @@ Route::screen('posts', PostListScreen::class)
 
 Route::screen('menus', MenuListScreen::class)->name('platform.menu.list');
 
-Route::post('reorder', [App\Http\Controllers\MenuController::class, 'postIndex']); //re-order
+Route::post('reorder', MenuAdminkaController::class, 'postIndex']); //re-order
 
 Route::screen('menus/new', MenuNewScreen::class)->name('platform.menu.new'); //create
 Route::screen('menus/edit/{menu?}', MenuNewScreen::class)->name('platform.menu.edit'); //edit menu
 
-Route::get('menus/delete/{id}', [App\Http\Controllers\MenuController::class, 'postDelete']); //delete item
+Route::get('menus/delete/{id}', [MenuAdminkaController::class, 'postDelete']); //delete item
 
-//menu
-/*
-
-
-
-Route::get('menustop/{id}','App\Http\Controllers\MenuController@getEdit'); //edit page
-
-Route::put('menustop/{id}','App\Http\Controllers\MenuController@postEdit')->name('topeditupdate'); //update data (edit)
-
-
-
-Route::get('getCategoryDetails/{id}','App\Http\Controllers\MenuController@getCategoryDetails'); //get category title and slug based on selected option
-
-*/
 

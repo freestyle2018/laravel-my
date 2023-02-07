@@ -9,7 +9,7 @@ use App\Models\Menu;
 use Orchid\Support\Facades\Alert;
 use Illuminate\Support\Facades\URL;
 
-class MenuController extends Controller
+class MenuAdminkaController extends Controller
 {
 
 

@@ -13,12 +13,37 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    <!-- css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link href="/css/menu.css" rel="stylesheet">
+
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <!-- @vite(['resources/sass/app.scss', 'resources/js/app.js'])-->
+     @vite(['resources/js/app.js'])
 </head>
 <body>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            function onNavbar() {
+                $('.navbar .dropdown-toggle .fa').on("click", function(event){
+                    event.preventDefault(); //отменяем переход по ссылке
+                    $(this).parent('a.nav-link').next('.dropdown-menu').toggle();
+                    $(this).parent('a.nav-link').next('.dropdown-menu').find('ul.dropdown-menu').css('display', 'none');
+                });
+            }
+            $(window).resize(function() {
+                onNavbar();
+            });
+            onNavbar();
+        });
+    </script>
+
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -29,10 +54,8 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-
-
+                    <ul class="navbar-nav mr-auto">
+                        @each('submenu', $menulist, 'menu', 'empty')
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -35,6 +35,7 @@ class MenuAdminkaController extends Controller
             foreach($rootOrdering as $order=>$item_id){
                 if($itemToOrder = Menu::find($item_id)){
                     $itemToOrder->order = $order;
+                    $itemToOrder->parent_id = 0;
                     $itemToOrder->save();
                 }
             }

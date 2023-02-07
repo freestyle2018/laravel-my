@@ -23,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $menu = new \App\Models\Menu;
+        $menuList = $menu->tree();
+
+        view()->share('menulist', $menuList);
     }
 }

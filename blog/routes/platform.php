@@ -119,7 +119,7 @@ Route::screen('posts', PostListScreen::class)
 
 Route::screen('menus', MenuListScreen::class)->name('platform.menu.list');
 
-Route::post('reorder', MenuAdminkaController::class, 'postIndex']); //re-order
+Route::post('reorder', [MenuAdminkaController::class, 'postIndex']); //re-order
 
 Route::screen('menus/new', MenuNewScreen::class)->name('platform.menu.new'); //create
 Route::screen('menus/edit/{menu?}', MenuNewScreen::class)->name('platform.menu.edit'); //edit menu

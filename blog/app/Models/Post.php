@@ -21,6 +21,7 @@ class Post extends Model
         'description',
         'body',
         'author',
+        'slug',
         'hero'
     ];
 

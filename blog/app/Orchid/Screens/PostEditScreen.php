@@ -94,6 +94,10 @@ class PostEditScreen extends Screen
                     ->placeholder('Attractive but mysterious title')
                     ->help('Specify a short descriptive title for this post.'),
 
+                Input::make('post.slug')
+                    ->title('Slug')
+                    ->placeholder('Url post'),
+
                 Cropper::make('post.hero')
                     ->targetId()
                     ->title('Large web banner image, generally in the front and center')
@@ -128,6 +132,7 @@ class PostEditScreen extends Screen
 
         $request->validate([
             'post.title' => 'required',
+            'post.slug' => 'required',
             'post.description' => 'required',
             'post.author' => 'required',
             'post.body' => 'required',

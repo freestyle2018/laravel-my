@@ -23,4 +23,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/send-email', [App\Http\Controllers\FeedbackController::class, 'send']);
 
+Route::get('/post/{slug}', [App\Http\Controllers\PostController::class, 'getPost'])->name('get-post');
+
 

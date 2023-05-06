@@ -20,6 +20,8 @@ use Tabuna\Breadcrumbs\Trail;
 use App\Orchid\Screens\EmailSenderScreen;
 use App\Orchid\Screens\PostEditScreen;
 use App\Orchid\Screens\PostListScreen;
+use App\Orchid\Screens\Category\CategoryEditScreen;
+use App\Orchid\Screens\Category\CategoryListScreen;
 use App\Orchid\Screens\Menu\MenuListScreen;
 use App\Orchid\Screens\Menu\MenuNewScreen;
 use App\Http\Controllers\MenuAdminkaController;
@@ -111,6 +113,12 @@ Route::screen('posts', PostListScreen::class)
     ->name('platform.post.list');
 
 
+
+Route::screen('category/{post?}', CategoryEditScreen::class)
+    ->name('platform.category.edit');
+
+Route::screen('categories', CategoryListScreen::class)
+    ->name('platform.category.list');
 
 
 

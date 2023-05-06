@@ -95,6 +95,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.email')
                 ->title('Tools'),
 
+            Menu::make('Categories')
+                ->icon('docs')
+                ->route('platform.category.list'),
+
             Menu::make('Posts')
                 ->icon('docs')
                 ->route('platform.post.list'),

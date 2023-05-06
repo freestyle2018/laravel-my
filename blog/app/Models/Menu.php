@@ -13,7 +13,7 @@ class Menu extends Model
     use HasFactory, AsSource, Attachable, Filterable;
 
     protected $fillable = [
-        'id', 'title', 'slug', 'order', 'parent_id'
+        'id', 'title', 'essence', 'slug', 'order', 'parent_id'
     ];
 
     public function parent()

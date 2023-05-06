@@ -10,6 +10,7 @@ use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Fields\Input;
 use Orchid\Support\Facades\Alert;
+use App\Orchid\Layouts\MenuEditListener;
 
 
 class MenuNewScreen extends Screen
@@ -31,7 +32,8 @@ class MenuNewScreen extends Screen
         $menu->load('attachment');
 
         return [
-            'menu' => $menu
+            'menu' => $menu,
+            'menu_info' => $menu->getAttributes(),
         ];
     }
 
@@ -50,6 +52,28 @@ class MenuNewScreen extends Screen
     {
         return $this->menu->exists ? 'Edit menu' : 'Creating a new menu';
     }
+
+    /**
+     * @param array|null $menu
+     * @param array|null $query
+     *
+     * @return string[]
+     */
+    public function asynsSelect(array $menu = null, array $query = null)
+    {
+        $return_query = array();
+        $return_query["menu"] = $return_query["menu_info"] = $menu;
+
+        if($menu["essence"] == "/post/"){
+            $return_query["see_post"] = true;
+        }
+        else if($menu["essence"] == "/category/"){
+            $return_query["see_category"] = true;
+        }
+
+        return $return_query;
+    }
+
 
     /**
      * Button commands.
@@ -82,10 +106,9 @@ class MenuNewScreen extends Screen
             Layout::rows([
                 Input::make('menu.title')
                     ->title('Title'),
+            ]),
 
-                Input::make('menu.slug')
-                    ->title('Slug'),
-            ])
+            MenuEditListener::class,
         ];
     }
 
